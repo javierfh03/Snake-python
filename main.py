@@ -1,16 +1,24 @@
-# This is a sample Python script.
+from serpiente import Serpiente
+from mapa import Mapa
 
-# Press Mayús+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+s = Serpiente()
+m = Mapa(s)
 
+m.iniciar_serpiente()
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+for i in range(0, 15):
+    for a in range(0, 15):
+        print(m.vector[i][a], end=" ")
 
+    print()
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
+print("----------------------------------------------------------")
+s.cambiar_direccion('d')
+m.mover_serpiente()
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+for i in range(0, 15):
+    for a in range(0, 15):
+        print(m.vector[i][a], end=" ")
+
+    print()
+
