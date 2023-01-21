@@ -39,12 +39,13 @@ class Mapa:
         self.vector[posicion_cabeza[0]][posicion_cabeza[1]] = 1
 
     def __mover_posiciones(self):
-        ultimo = self.serpiente.posiciones[len(self.serpiente.posiciones) - 1]
+        ultimo = self.serpiente.posiciones[-1]
 
         self.vector[ultimo[0]][ultimo[1]] = 0
 
-        for i in range(1, len(self.serpiente.posiciones)):
+        for i in range(len(self.serpiente.posiciones) - 1, 0, -1):
             self.serpiente.posiciones[i] = self.serpiente.posiciones[i - 1]
+
 
 
 

@@ -1,2 +1,2 @@
 # Snake-python
-El juego clíasico de snake programado en python.
+El juego clásico de snake programado en python.

@@ -15,6 +15,12 @@ for i in range(0, 15):
 print("----------------------------------------------------------")
 s.cambiar_direccion('d')
 m.mover_serpiente()
+s.cambiar_direccion('w')
+m.mover_serpiente()
+s.cambiar_direccion('w')
+m.mover_serpiente()
+s.cambiar_direccion('a')
+m.mover_serpiente()
 
 for i in range(0, 15):
     for a in range(0, 15):
