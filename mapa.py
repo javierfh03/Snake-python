@@ -25,18 +25,20 @@ class Mapa:
 
     def mover_serpiente(self):
         self.__mover_posiciones()
-        posicion_cabeza = self.serpiente.posiciones[0]
+        y = self.serpiente.posiciones[0][0]
+        x = self.serpiente.posiciones[1][1]
 
         if self.serpiente.direccion == 'n':
-            posicion_cabeza[0] -= 1
+            y -= 1
         elif self.serpiente.direccion == 's':
-            posicion_cabeza[0] += 1
+            y += 1
         elif self.serpiente.direccion == 'e':
-            posicion_cabeza[1] += 1
+            x += 1
         elif self.serpiente.direccion == 'o':
-            posicion_cabeza[1] -= 1
+            x -= 1
 
-        self.vector[posicion_cabeza[0]][posicion_cabeza[1]] = 1
+        self.serpiente.posiciones[0] = (y, x)
+        self.vector[y][x] = 1
 
     def __mover_posiciones(self):
         ultimo = self.serpiente.posiciones[-1]

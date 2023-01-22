@@ -1,30 +1,9 @@
 from serpiente import Serpiente
 from mapa import Mapa
+from ventana import Ventana
 
 s = Serpiente()
 m = Mapa(s)
+v = Ventana(m)
 
-m.iniciar_serpiente()
-
-for i in range(0, 15):
-    for a in range(0, 15):
-        print(m.vector[i][a], end=" ")
-
-    print()
-
-print("----------------------------------------------------------")
-s.cambiar_direccion('d')
-m.mover_serpiente()
-s.cambiar_direccion('w')
-m.mover_serpiente()
-s.cambiar_direccion('w')
-m.mover_serpiente()
-s.cambiar_direccion('a')
-m.mover_serpiente()
-
-for i in range(0, 15):
-    for a in range(0, 15):
-        print(m.vector[i][a], end=" ")
-
-    print()
-
+v.bucle()
