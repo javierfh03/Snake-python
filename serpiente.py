@@ -2,7 +2,7 @@ class Serpiente:
     def __init__(self):
         self.tamanio = 5
         self.puntos = 0
-        self.direccion = 'w'
+        self.direccion = 'n'
         self.posiciones = []
     def cambiar_direccion(self, tecla: str):
         if tecla == 'w':

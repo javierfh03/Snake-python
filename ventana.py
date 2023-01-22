@@ -1,4 +1,6 @@
 import sys
+from time import sleep
+
 import pygame
 from mapa import Mapa
 
@@ -27,7 +29,8 @@ class Ventana:
                 if self.mapa.vector[i][a] == 1:
                     pygame.draw.rect(self.ventana, verde, (x, y, 30, 30))
                 elif self.mapa.vector[i][a] == 2:
-                    pygame.draw.circle(self.ventana, rojo, (x, y), 15)
+                    pygame.draw.rect(self.ventana, rojo, (x, y, 30, 30))
+                    # pygame.draw.circle(self.ventana, rojo, (x, y), 15)
                 x = x + 30
             x = 0
             y = y + 30
@@ -50,6 +53,7 @@ class Ventana:
                     elif keys[pygame.K_d]:
                         self.mapa.serpiente.cambiar_direccion('d')
 
-                    self.mapa.mover_serpiente()
-                    self.__dibujar()
+            self.mapa.mover_serpiente()
+            self.__dibujar()
+            sleep(0.1)
             pygame.display.update()
