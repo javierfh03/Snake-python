@@ -29,11 +29,11 @@ class Ventana:
                 if self.mapa.vector[i][a] == 1:
                     pygame.draw.rect(self.ventana, verde, (x, y, 30, 30))
                 elif self.mapa.vector[i][a] == 2:
-                    pygame.draw.rect(self.ventana, rojo, (x, y, 30, 30))
-                    # pygame.draw.circle(self.ventana, rojo, (15, 65), 15)
+                    pygame.draw.circle(self.ventana, rojo, ((x + 15), (y + 15)), 15)
                 x = x + 30
             x = 0
             y = y + 30
+            
         pygame.display.flip()
 
     def bucle(self):

@@ -45,6 +45,7 @@ class Mapa:
         self.__anterior_pos = self.serpiente.posiciones[-1]
         self.vector[self.__anterior_pos[0]][self.__anterior_pos[1]] = 0
 
+        # La posición de atrás recoge la de adelante y así continuamente
         for i in range(len(self.serpiente.posiciones) - 1, 0, -1):
             self.serpiente.posiciones[i] = self.serpiente.posiciones[i - 1]
 
