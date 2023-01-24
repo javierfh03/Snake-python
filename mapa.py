@@ -51,7 +51,7 @@ class Mapa:
 
     def __detectar_colisiones(self, y : int, x : int):
         # Comprobar que la serpiente no tocó ningún límite
-        if 15 > y > -1 and 15 > x > -1:
+        if len(self.vector) > y > -1 and len(self.vector) > x > -1:
             # Si el vector ya es uno, significa que ya estaba ahí la serpiente
             if self.vector[y][x] == 1:
                 self.no_derrota = False
