@@ -15,5 +15,5 @@ class Serpiente:
             if self.direccion != 'e':
                 self.direccion = 'o'
         elif tecla == 'd':
-            if self.direccion != 'oaaaaaa':
+            if self.direccion != 'o':
                 self.direccion = 'e'
