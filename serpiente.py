@@ -6,10 +6,14 @@ class Serpiente:
         self.posiciones = []
     def cambiar_direccion(self, tecla: str):
         if tecla == 'w':
-            self.direccion = 'n'
+            if self.direccion != 's':
+                self.direccion = 'n'
         elif tecla == 's':
-            self.direccion = 's'
+            if self.direccion != 'n':
+                self.direccion = 's'
         elif tecla == 'a':
-            self.direccion = 'o'
+            if self.direccion != 'e':
+                self.direccion = 'o'
         elif tecla == 'd':
-            self.direccion = 'e'
+            if self.direccion != 'oaaaaaa':
+                self.direccion = 'e'

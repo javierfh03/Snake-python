@@ -38,22 +38,28 @@ class Ventana:
 
     def bucle(self):
         while True:
-            for event in pygame.event.get():
-                if event.type == pygame.QUIT:
-                    pygame.quit()
-                    sys.exit()
-                elif event.type == pygame.KEYDOWN:
-                    keys = pygame.key.get_pressed()
-                    if keys[pygame.K_w]:
-                        self.mapa.serpiente.cambiar_direccion('w')
-                    elif keys[pygame.K_s]:
-                        self.mapa.serpiente.cambiar_direccion('s')
-                    elif keys[pygame.K_a]:
-                        self.mapa.serpiente.cambiar_direccion('a')
-                    elif keys[pygame.K_d]:
-                        self.mapa.serpiente.cambiar_direccion('d')
-
+            self.__entrada_teclado()
             self.mapa.mover_serpiente()
             self.__dibujar()
             sleep(0.1)
+
             pygame.display.update()
+
+    def __entrada_teclado(self):
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                sys.exit()
+            elif event.type == pygame.KEYDOWN:
+                keys = pygame.key.get_pressed()
+                if keys[pygame.K_w]:
+                    self.mapa.serpiente.cambiar_direccion('w')
+                elif keys[pygame.K_s]:
+                    self.mapa.serpiente.cambiar_direccion('s')
+                elif keys[pygame.K_a]:
+                    self.mapa.serpiente.cambiar_direccion('a')
+                elif keys[pygame.K_d]:
+                    self.mapa.serpiente.cambiar_direccion('d')
+                elif keys[pygame.K_ESCAPE]:
+                    pygame.quit()
+                    sys.exit()
