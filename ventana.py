@@ -31,6 +31,11 @@ class Ventana:
 
             pygame.display.update()
 
+        self.__dibujar_fin()
+        sleep(2)
+
+
+
     def __dibujar(self):
 
         self.ventana.fill(self.__negro)
@@ -59,6 +64,15 @@ class Ventana:
                 x = x + 30
             x = 0
             y = y + 30
+
+    def __dibujar_fin(self):
+        texto = "Fin del juego"
+        texto_tamanio = self.__fuente_texto.render(texto, True, self.__blanco).get_size()
+        x = (self.__anchura - texto_tamanio[0]) / 2
+        y = (self.__anchura - texto_tamanio[1]) / 2
+
+        self.ventana.blit(self.__fuente_texto.render(texto, True, self.__blanco), (x, y))
+        pygame.display.flip()
 
     def __entrada_teclado(self):
         for event in pygame.event.get():
