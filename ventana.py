@@ -15,8 +15,8 @@ class Ventana:
     def __init__(self, mapa: Mapa):
         pygame.init()
         pygame.display.set_caption("Snake")
-        self.ventana = pygame.display.set_mode((self.__anchura, self.__altura))
         self.mapa = mapa
+        self.ventana = pygame.display.set_mode((self.__anchura, self.__altura))
         self.__fuente_texto = pygame.font.SysFont("Arial", 30)
 
         mapa.colocar_manzana()
@@ -33,8 +33,6 @@ class Ventana:
 
         self.__dibujar_fin()
         sleep(2)
-
-
 
     def __dibujar(self):
 

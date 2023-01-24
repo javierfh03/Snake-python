@@ -4,7 +4,9 @@ class Serpiente:
         self.puntos = 0
         self.direccion = 'n'
         self.posiciones = []
+
     def cambiar_direccion(self, tecla: str):
+        # En caso de que se intente cambiar la dirección a la contraria a la que se está dirigiendo no se permitirá
         if tecla == 'w':
             if self.direccion != 's':
                 self.direccion = 'n'
