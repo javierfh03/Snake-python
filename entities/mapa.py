@@ -1,6 +1,7 @@
 import numpy as np
 import random as ran
-from serpiente import Serpiente
+from . import Serpiente
+
 
 class Mapa:
     def __init__(self, serpiente: Serpiente):
@@ -45,14 +46,14 @@ class Mapa:
         self.__anterior_pos = self.serpiente.posiciones[-1]
         self.vector[self.__anterior_pos[0]][self.__anterior_pos[1]] = 0
 
-        # La posición de atrás recoge la de adelante y así continuamente
+        # La posición de atrás recoge la de adelante y así continuamente.
         for i in range(len(self.serpiente.posiciones) - 1, 0, -1):
             self.serpiente.posiciones[i] = self.serpiente.posiciones[i - 1]
 
     def __detectar_colisiones(self, y: int, x: int):
-        # Comprobar que la serpiente no tocó ningún límite
+        # Comprobar que la serpiente no tocó ningún límite.
         if len(self.vector) > y > -1 and len(self.vector) > x > -1:
-            # Si el vector ya es uno, significa que ya estaba ahí la serpiente
+            # Si el vector ya es uno, significa que ya estaba ahí la serpiente.
             if self.vector[y][x] == 1:
                 self.no_derrota = False
             else:
@@ -62,7 +63,7 @@ class Mapa:
         else:
             self.no_derrota = False
 
-    def __comer_manzana(self, y : int, x : int):
+    def __comer_manzana(self, y: int, x: int):
         if self.vector[y][x] == 2:
             self.serpiente.puntos += 1
             self.serpiente.posiciones.append(self.__anterior_pos)

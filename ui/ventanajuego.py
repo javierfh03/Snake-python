@@ -1,10 +1,10 @@
 import sys
-from time import sleep
-
 import pygame
-from mapa import Mapa
+from time import sleep
+from entities.mapa import Mapa
 
-class Ventana:
+
+class VentanaJuego:
     __anchura = 450
     __altura = 500
     __verde = (0, 255, 0)
@@ -22,17 +22,19 @@ class Ventana:
         mapa.colocar_manzana()
         mapa.iniciar_serpiente()
 
-    def bucle(self):
-        while self.mapa.no_derrota:
+    def iniciar(self):
+        while True:
             self.__entrada_teclado()
             self.mapa.mover_serpiente()
-            self.__dibujar()
+
+            if self.mapa.no_derrota:
+                self.__dibujar()
+            else:
+                self.__dibujar_fin()
+
             sleep(0.1)
 
             pygame.display.update()
-
-        self.__dibujar_fin()
-        sleep(2)
 
     def __dibujar(self):
 

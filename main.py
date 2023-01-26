@@ -1,9 +1,11 @@
-from serpiente import Serpiente
-from mapa import Mapa
-from ventana import Ventana
+from entities.serpiente import Serpiente
+from entities.mapa import Mapa
+from ui.ventanajuego import VentanaJuego
 
 s = Serpiente()
 m = Mapa(s)
-v = Ventana(m)
+v = VentanaJuego(m)
 
-v.bucle()
+v.iniciar()
+
+
