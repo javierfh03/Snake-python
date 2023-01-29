@@ -1,6 +1,5 @@
 import sys
 from time import sleep
-from pygame.surface import Surface
 from entities import *
 from ui.__init__ import *
 
@@ -8,6 +7,7 @@ from ui.__init__ import *
 class VistaJuego:
     def __init__(self, ventana: Surface):
         self.ventana = ventana
+        self.activa = True
         self.__fuente_texto = pygame.font.SysFont("Arial", 30)
         self.serpiente = Serpiente()
         self.mapa = Mapa(self.serpiente)
@@ -18,18 +18,20 @@ class VistaJuego:
     def iniciar(self):
         texto_fin = "Fin del juego"
 
-        while True:
+        while self.activa:
             self.__entrada_teclado()
             self.mapa.mover_serpiente()
 
             if self.mapa.no_derrota:
                 self.__dibujar()
             else:
-                fin = self.__fuente_texto.render(texto_fin, True, BLANCO)
-                self.ventana.blit(fin, (obtener_centro_texto(self.__fuente_texto, texto_fin), 200))
+                dibujar_texto(texto_fin, self.__fuente_texto, BLANCO, self.ventana,
+                              obtener_centro_texto(self.__fuente_texto, texto_fin), 200)
 
             sleep(0.15)
             pygame.display.update()
+
+        self.ventana.fill(NEGRO)
 
     def __dibujar(self):
         self.ventana.fill(NEGRO)
@@ -41,8 +43,8 @@ class VistaJuego:
     def __dibujar_puntos(self):
         texto_puntos = "Puntos: {}".format(self.serpiente.puntos)
 
-        puntos = self.__fuente_texto.render(texto_puntos, True, BLANCO)
-        self.ventana.blit(puntos, (obtener_centro_texto(self.__fuente_texto, texto_puntos), 10))
+        dibujar_texto(texto_puntos, self.__fuente_texto, BLANCO, self.ventana,
+                      obtener_centro_texto(self.__fuente_texto, texto_puntos), 10)
 
     def __dibujar_tablero(self):
         x = 0
@@ -74,5 +76,4 @@ class VistaJuego:
                 elif keys[pygame.K_d]:
                     self.serpiente.cambiar_direccion('d')
                 elif keys[pygame.K_ESCAPE]:
-                    pygame.quit()
-                    sys.exit()
+                    self.activa = False

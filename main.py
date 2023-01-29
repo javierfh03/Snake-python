@@ -1,3 +1,3 @@
 from ui.ventana import Ventana
 
-Ventana()
+Ventana().iniciar()
