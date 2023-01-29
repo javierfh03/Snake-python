@@ -15,11 +15,12 @@ class Mapa:
             y = ran.randint(0, 14)
             x = ran.randint(0, 14)
 
-            dato = self.vector[y][x]
+            if (y, x) != self.__anterior_pos:
+                dato = self.vector[y][x]
 
-            if dato == 0:
-                self.vector[y][x] = 2
-                break
+                if dato == 0:
+                    self.vector[y][x] = 2
+                    break
 
     def iniciar_serpiente(self):
         for i in range(4, 9):
