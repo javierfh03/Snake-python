@@ -37,8 +37,8 @@ class VistaMenu:
             elif event.type == pygame.MOUSEBUTTONDOWN:
                 pos = pygame.mouse.get_pos()
 
-                if self.jugar.get_rect(center=(195, 230)).collidepoint(pos):
+                if self.jugar.get_rect(center=(220, 240)).collidepoint(pos):
                     self.activa = False
-                if self.salir.get_rect(center=(195, 330)).collidepoint(pos):
+                if self.salir.get_rect(center=(220, 340)).collidepoint(pos):
                     pygame.quit()
                     sys.exit()
