@@ -1,2 +1,2 @@
-from .serpiente import Serpiente
-from .mapa import Mapa
+from entities.serpiente import Serpiente
+from entities.mapa import Mapa

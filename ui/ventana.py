@@ -1,6 +1,6 @@
-from ui.__init__ import *
 from ui.vistajuego import VistaJuego
 from ui.vistamenu import VistaMenu
+from . import *
 
 
 class Ventana:

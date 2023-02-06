@@ -1,7 +1,7 @@
-import sys
 from time import sleep
 from entities import *
-from ui.__init__ import *
+from . import *
+import sys
 
 
 class VistaJuego:
