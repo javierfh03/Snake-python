@@ -1,6 +1,7 @@
-import numpy as np
+from entities.serpiente import Serpiente
+
 import random as ran
-from . import Serpiente
+import numpy as np
 
 
 class Mapa:

@@ -1,5 +1,11 @@
+from ui.utilidades import dibujar_texto
+from ui.utilidades import obtener_centro_texto
+from ui.utilidades import VERDE
+
 import sys
-from ui.__init__ import *
+
+import pygame
+from pygame.surface import Surface
 
 
 class VistaMenu:
@@ -21,11 +27,14 @@ class VistaMenu:
         texto_salir = "Salir"
 
         self.titulo = dibujar_texto(texto_titulo, self.__fuente_titulo, VERDE, self.ventana,
-                                    obtener_centro_texto(self.__fuente_titulo, texto_titulo), 40)
+                                    obtener_centro_texto(self.__fuente_titulo, texto_titulo,
+                                                         self.ventana.get_width()), 40)
         self.jugar = dibujar_texto(texto_jugar, self.__fuente_texto, VERDE, self.ventana,
-                                   obtener_centro_texto(self.__fuente_texto, texto_jugar), 230)
+                                   obtener_centro_texto(self.__fuente_texto, texto_jugar,
+                                                        self.ventana.get_width()), 230)
         self.salir = dibujar_texto(texto_salir, self.__fuente_texto, VERDE, self.ventana,
-                                   obtener_centro_texto(self.__fuente_texto, texto_salir), 330)
+                                   obtener_centro_texto(self.__fuente_texto, texto_salir,
+                                                        self.ventana.get_width()), 330)
 
         pygame.display.flip()
 

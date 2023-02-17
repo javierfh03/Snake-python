@@ -1,7 +1,17 @@
-from time import sleep
-from entities import *
-from . import *
+from entities import Mapa
+from entities import Serpiente
+from ui.utilidades import dibujar_texto
+from ui.utilidades import obtener_centro_texto
+from ui.utilidades import VERDE
+from ui.utilidades import ROJO
+from ui.utilidades import BLANCO
+from ui.utilidades import NEGRO
+
 import sys
+from time import sleep
+
+import pygame
+from pygame.surface import Surface
 
 
 class VistaJuego:
@@ -26,9 +36,9 @@ class VistaJuego:
                 self.__dibujar()
             else:
                 dibujar_texto(texto_fin, self.__fuente_texto, BLANCO, self.ventana,
-                              obtener_centro_texto(self.__fuente_texto, texto_fin), 200)
+                              obtener_centro_texto(self.__fuente_texto, texto_fin, self.ventana.get_width()), 200)
 
-            sleep(0.15)
+            sleep(0.12)
             pygame.display.update()
 
         self.ventana.fill(NEGRO)
@@ -44,7 +54,7 @@ class VistaJuego:
         texto_puntos = "Puntos: {}".format(self.serpiente.puntos)
 
         dibujar_texto(texto_puntos, self.__fuente_texto, BLANCO, self.ventana,
-                      obtener_centro_texto(self.__fuente_texto, texto_puntos), 10)
+                      obtener_centro_texto(self.__fuente_texto, texto_puntos, self.ventana.get_width()), 10)
 
     def __dibujar_tablero(self):
         x = 0

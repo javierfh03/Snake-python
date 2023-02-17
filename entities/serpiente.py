@@ -1,6 +1,5 @@
 class Serpiente:
     def __init__(self):
-        self.tamanio = 5
         self.puntos = 0
         self.direccion = 'n'
         self.posiciones = []
